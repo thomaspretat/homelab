@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: fav.thomaspretat.local
+    - host: testl.thomaspretat.com
       http:
         paths:
           - backend:
