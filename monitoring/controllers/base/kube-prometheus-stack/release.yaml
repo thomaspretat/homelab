@@ -31,3 +31,9 @@ spec:
   values:
     grafana:
       adminPassword: tpretat
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        host: 
+          - grafana.thomaspretat.com
+        tls: []
