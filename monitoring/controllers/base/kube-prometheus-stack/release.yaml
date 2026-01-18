@@ -34,6 +34,6 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        host: 
+        hosts: 
           - grafana.thomaspretat.com
         tls: []
