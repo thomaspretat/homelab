@@ -14,7 +14,7 @@ spec:
             - name: renovate
               image: renovate/renovate:latest
               args:
-                - beckk97440/homelab
+                - thomaspretat/homelab
 
               envFrom:
                 - secretRef:
