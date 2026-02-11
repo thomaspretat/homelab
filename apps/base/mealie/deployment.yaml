@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mealie
+  name: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  template:
+    metadata:
+      labels:
+        app: mealie
+    spec:
+      containers:
+        - env:
+            - name: ALLOW_SIGNUP
+              value: "true"
+            - name: BASE_URL
+              value: https://recettes.thomaspretat.com
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: Europe/Paris
+          image: ghcr.io/mealie-recipes/mealie:v3.10.2
+          name: mealie-container
+          ports:
+            - containerPort: 9000
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /app/data
+              name: mealie-data
+      restartPolicy: Always
+
+      volumes:
+        - name: mealie-data
+          persistentVolumeClaim:
+            claimName: mealie-data-pvc
