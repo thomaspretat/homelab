@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lol-esport-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lol-esport-bot
+  template:
+    metadata:
+      labels:
+        app: lol-esport-bot
+    spec:
+      securityContext:
+        fsGroup: 1000
+        runAsUser: 1000
+        runAsGroup: 1000
+
+      containers:
+        - name: lol-esport-bot-container
+          image: ghcr.io/thomaspretat/lol-esport-bot:1.1
+          
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          envFrom:
+            - secretRef:
+                name: lol-esport-bot-container-env
+
+          volumeMounts:
+            - name: lol-esport-bot-data
+              mountPath: /app/data
+
+      volumes:
+        - name: lol-esport-bot-data
+          persistentVolumeClaim:
+            claimName: lol-esport-bot-data-pvc
