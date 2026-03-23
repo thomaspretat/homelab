@@ -20,9 +20,9 @@ monitoring/
 
 ## Apps
 
-**Linkding:** Bookmarking manager, used for my favorites inside a lot of browser
-**Mealie:** Recipe manager to share my recipe and have it online at all time
-**Lol Esport Bot:** Discord bot for news about the game League of Legends. Another project I was working on, https://github.com/thomaspretat/lol-esport-bot
+- **Linkding:** Bookmarking manager, used for my favorites inside a lot of browser
+- **Mealie:** Recipe manager to share my recipe and have it online at all time
+- **Lol Esport Bot:** Discord bot for news about the game League of Legends. Another project I was working on, https://github.com/thomaspretat/lol-esport-bot
 
 
 ## Infrastructure
