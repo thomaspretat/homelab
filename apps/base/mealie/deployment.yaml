@@ -26,7 +26,7 @@ spec:
               value: "1000"
             - name: TZ
               value: Europe/Paris
-          image: ghcr.io/mealie-recipes/mealie:v3.12.0
+          image: ghcr.io/mealie-recipes/mealie:v3.16.0
           name: mealie-container
           ports:
             - containerPort: 9000
