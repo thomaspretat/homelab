@@ -34,9 +34,35 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        hosts: 
+        hosts:
           - grafana.thomaspretat.com
         tls:
           - secretName: grafana-tls-secret
             hosts:
               - grafana.thomaspretat.com
+      persistence:
+        enabled: true
+        type: pvc
+        size: 5Gi
+        storageClassName: local-path
+    prometheus:
+      prometheusSpec:
+        retention: 7d
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: local-path
+              accessModes: [ReadWriteOnce]
+              resources:
+                requests:
+                  storage: 20Gi
+    alertmanager:
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: local-path
+              accessModes: [ReadWriteOnce]
+              resources:
+                requests:
+                  storage: 2Gi
