@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - home-assistant
-  - linkding
-  - mealie
-  - lol-esport-bot
+  - deployment.yaml
+  - namespace.yaml
+  - storage.yaml
+  - service.yaml

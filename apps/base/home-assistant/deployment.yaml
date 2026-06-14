@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: home-assistant
+  name: home-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: Europe/Paris
+          image: ghcr.io/home-assistant/home-assistant:2026.6.3
+          name: home-assistant-container
+          ports:
+            - containerPort: 8123
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /config
+              name: home-assistant-config
+      restartPolicy: Always
+      volumes:
+        - name: home-assistant-config
+          persistentVolumeClaim:
+            claimName: home-assistant-config-pvc
