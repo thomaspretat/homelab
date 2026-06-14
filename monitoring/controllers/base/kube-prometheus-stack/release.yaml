@@ -47,7 +47,7 @@ spec:
         storageClassName: local-path
     prometheus:
       prometheusSpec:
-        retention: 7d
+        retention: 3d
         storageSpec:
           volumeClaimTemplate:
             spec:
