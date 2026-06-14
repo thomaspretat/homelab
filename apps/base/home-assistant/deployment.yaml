@@ -14,6 +14,8 @@ spec:
       labels:
         app: home-assistant
     spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - env:
             - name: TZ
